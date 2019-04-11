@@ -1,0 +1,3 @@
+#Gravar imagem .iso de instalação do sistema numa mídia
+sudo dd if= <nome_imagem>.iso of=/dev/sdb bs=512k
+sync

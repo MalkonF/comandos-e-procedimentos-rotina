@@ -1,3 +1,13 @@
 #Gravar imagem .iso de instalação do sistema numa mídia
 sudo dd if= <nome_imagem>.iso of=/dev/sdb bs=512k
 sync
+
+#Add chave pública no github p n precisar digitar senha a cada push/pull
+sh-keygen -t rsa -b 4096 -C "your_email@example.com"
+eval `ssh-agent -s`
+ssh-add -K ~/.ssh/id_rsa
+#salve a chave pub no github(site)
+ssh -T git@github.com
+git remote -v #checa se a sessão é http ou ssh, com a autenticação via chaves só vai funcionar qnd n é http, para converter use
+git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+#Teste fzd o push

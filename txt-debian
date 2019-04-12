@@ -11,3 +11,18 @@ ssh -T git@github.com
 git remote -v #checa se a sessão é http ou ssh, com a autenticação via chaves só vai funcionar qnd n é http, para converter use
 git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 #Teste fzd o push
+
+#Bd
+select * from tbusuarios where nomecli like 'jo%';
+select ID, NAME, COUNTRYCODE, DISTRICT, POPULATION from CITY where COUNTRYCODE='USA' and POPULATION > '100000';
+select * from CITY where id='1661';
+select CITY, STATE from STATION ;
+select distinct city from station where (mod(id, 2) = 0); #remover duplicatas / mostra somente id c núm par
+select * from gafanhotos order by nome;
+select * from gafanhotos order by nome asc; #ou coloca desc
+select ano, nome, carga from cursos order by ano , nome; #ordena pelo ano e dps ordem alfabética. 
+select nome, descricao from cursos where ano <= '2015' order by nome;
+select nome, ano from cursos where ano between 2014 and 2016;
+select nome, ano from cursos where ano between 2014 and 2016 order by ano desc, nome asc;
+select nome, ano from cursos where ano in('2014', '2017') order by ano;
+select * from cursos where carga < 15 and ano > 2000 order by nome;

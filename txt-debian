@@ -2,6 +2,7 @@
 sudo dd if= <nome_imagem>.iso of=/dev/sdb bs=512k
 sync
 
+
 #Add chave pública no github p n precisar digitar senha a cada push/pull
 sh-keygen -t rsa -b 4096 -C "your_email@example.com"
 eval `ssh-agent -s`
@@ -11,6 +12,7 @@ ssh -T git@github.com
 git remote -v #checa se a sessão é http ou ssh, com a autenticação via chaves só vai funcionar qnd n é http, para converter use
 git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 #Teste fzd o push
+
 
 #Bd
 select * from tbusuarios where nomecli like 'jo%';
@@ -26,3 +28,17 @@ select nome, ano from cursos where ano between 2014 and 2016;
 select nome, ano from cursos where ano between 2014 and 2016 order by ano desc, nome asc;
 select nome, ano from cursos where ano in('2014', '2017') order by ano;
 select * from cursos where carga < 15 and ano > 2000 order by nome;
+
+#execute script from desktop shortcut
+[Desktop Entry]
+Version=1.0
+Comment[pt_BR]=IDE Netbeans
+Name[pt_BR]=Netbeans
+Exec=/usr/local/netbeans/bin/netbeans
+Comment=Connect to My Server
+Encoding=UTF-8
+Terminal=true
+Type=Application
+Categories=Application;Developtment;
+
+

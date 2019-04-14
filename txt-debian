@@ -13,6 +13,12 @@ git remote -v #checa se a sessão é http ou ssh, com a autenticação via chave
 git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 #Teste fzd o push
 
+#habilitar o sudo para usuário comum
+sudo apt-get install sudo
+adduser <nome_usuario>
+usermod -aG sudo <nome_usuario> 
+#reinicie
+
 
 #Bd
 select * from tbusuarios where nomecli like 'jo%';

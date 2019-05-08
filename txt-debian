@@ -13,6 +13,7 @@ git remote -v #checa se a sessão é http ou ssh, com a autenticação via chave
 git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 #Teste fzd o push
 
+
 #habilitar o sudo para usuário comum
 sudo apt-get install sudo
 adduser <nome_usuario>
@@ -35,6 +36,23 @@ select nome, ano from cursos where ano between 2014 and 2016 order by ano desc, 
 select nome, ano from cursos where ano in('2014', '2017') order by ano;
 select * from cursos where carga < 15 and ano > 2000 order by nome;
 
+
+#Install spring boot CLI
+cd /usr/local
+wget https://repo.spring.io/release/org/springframework/boot/spring-boot-cli/2.1.4.RELEASE/spring-boot-cli-2.1.4.RELEASE-bin.tar.gz
+sudo tar -zxvf spring-boot-cli-2.1.4.RELEASE-bin.tar.gz
+sudo nano ~/.bashrc
+#Cole no final do arquivo
+export SPRING_HOME=/usr/local/spring-2.1.4.RELEASE
+export PATH=$SPRING_HOME/bin:$PATH
+#Rode
+cd ~
+bash .bashrc
+sudo reboot
+spring run <nomeapp>
+#Abra navegador e acesse http://localhost:8080/
+
+
 #execute script from desktop shortcut. Crie arquivo com o seguinte conteúdo(adapte de acordo com o programa) e com a extensão .desktop
 [Desktop Entry]
 Version=1.0
@@ -45,6 +63,7 @@ Comment=Connect to My Server
 Encoding=UTF-8
 Terminal=true
 Type=Application
+Categories=Application;Developtment;
 
 sudo chmod +x <file>.desktop
 #Mude o dono e o grupo p o usuário que vai executar
@@ -53,6 +72,7 @@ sudo chown <user>:<group> <file>.desktop
 
 
 
-Categories=Application;Developtment;
+
+
 
 

@@ -35,7 +35,7 @@ select nome, ano from cursos where ano between 2014 and 2016 order by ano desc, 
 select nome, ano from cursos where ano in('2014', '2017') order by ano;
 select * from cursos where carga < 15 and ano > 2000 order by nome;
 
-#execute script from desktop shortcut
+#execute script from desktop shortcut. Crie arquivo com o seguinte conteúdo(adapte de acordo com o programa) e com a extensão .desktop
 [Desktop Entry]
 Version=1.0
 Comment[pt_BR]=IDE Netbeans
@@ -45,6 +45,14 @@ Comment=Connect to My Server
 Encoding=UTF-8
 Terminal=true
 Type=Application
+
+sudo chmod +x <file>.desktop
+#Mude o dono e o grupo p o usuário que vai executar
+sudo chown <user>:<group> <file>.desktop 
+
+
+
+
 Categories=Application;Developtment;
 
 

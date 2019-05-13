@@ -52,6 +52,23 @@ sudo reboot
 spring run <nomeapp>
 #Abra navegador e acesse http://localhost:8080/
 
+#Criando estrutura de projeto
+spring init
+spring init -dweb,jpa,security
+spring init -dweb,jpa,security --build gradle
+spring init -dweb,jpa,security --build gradle -p war #por default as especificações de build produzem um .jar, se quiser produzir um .war
+spring init -dweb,jpa,security --build gradle -p war myapp
+spring init -dweb,jpa,security --build gradle -p jar -x
+spring help init
+spring init -l
+
+gradle bootRun
+gradle build
+java -jar build/libs/readinglist-0.0.1-SNAPSHOT.jar
+
+gradle dependencies #ver especificamente quais dependencias tem seu projeto
+mvn dependency:tree
+
 
 #execute script from desktop shortcut. Crie arquivo com o seguinte conteúdo(adapte de acordo com o programa) e com a extensão .desktop
 [Desktop Entry]

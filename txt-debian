@@ -3,6 +3,17 @@ sudo dd if= <nome_imagem>.iso of=/dev/sdb bs=512k
 sync
 
 
+#Install virtualbox
+sudo apt-get update
+sudo apt-get upgrade
+echo "deb http://download.virtualbox.org/virtualbox/debian stretch contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install virtualbox-6.0
+virtualbox
+
+
 #Add chave pública no github p n precisar digitar senha a cada push/pull
 sh-keygen -t rsa -b 4096 -C "your_email@example.com"
 eval `ssh-agent -s`

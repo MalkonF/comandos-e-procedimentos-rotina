@@ -24,6 +24,16 @@ git remote -v #checa se a sessão é http ou ssh, com a autenticação via chave
 git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 #Teste fzd o push
 
+#Inicializar um repositório
+#Crie um repositório no site do github
+#Crie o arquivo .gitignore
+git init
+echo "#instruções de uso para seu projeto" >> README.md
+git add .
+git commit -m "first commit"
+git remote add origin git@github.com:MalkonF/osx.git
+git push -u origin master
+
 
 #habilitar o sudo para usuário comum
 sudo apt-get install sudo
@@ -46,6 +56,10 @@ select nome, ano from cursos where ano between 2014 and 2016;
 select nome, ano from cursos where ano between 2014 and 2016 order by ano desc, nome asc;
 select nome, ano from cursos where ano in('2014', '2017') order by ano;
 select * from cursos where carga < 15 and ano > 2000 order by nome;
+
+
+#Instalar JDK9
+
 
 
 #Install spring boot CLI

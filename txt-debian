@@ -69,6 +69,7 @@ sudo nano /etc/environment
 JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 source /etc/environment
 
+<<<<<<< HEAD
 #Mudando tema Netbeans 10
 Tools > Plugins > Settings 
 Add
@@ -77,6 +78,8 @@ http://plugins.netbeans.org/nbpluginportal/updates/8.2/catalog.xml.gz
 
 #Importing project from GIT in STS
 #Execute com a opção smart p baixar as dependências com Maven
+=======
+>>>>>>> ac5f0432320e8ec0a8b4b967cebdf9d6f4989e47
 
 #Install spring boot CLI
 cd /usr/local

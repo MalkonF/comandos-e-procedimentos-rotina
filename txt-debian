@@ -70,6 +70,7 @@ JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 source /etc/environment
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #Mudando tema Netbeans 10
 Tools > Plugins > Settings 
 Add
@@ -80,6 +81,8 @@ http://plugins.netbeans.org/nbpluginportal/updates/8.2/catalog.xml.gz
 #Execute com a opção smart p baixar as dependências com Maven
 =======
 >>>>>>> ac5f0432320e8ec0a8b4b967cebdf9d6f4989e47
+=======
+>>>>>>> parent of 6011415... Mudando tema netbeans / Importando projetos do git direto pro STS
 
 #Install spring boot CLI
 cd /usr/local

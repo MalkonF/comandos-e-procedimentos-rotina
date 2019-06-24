@@ -58,8 +58,16 @@ select nome, ano from cursos where ano in('2014', '2017') order by ano;
 select * from cursos where carga < 15 and ano > 2000 order by nome;
 
 
-#Instalar JDK9
-
+#Instalar OpenJDK e Netbeans
+cd /usr/local
+wget -c https://www-us.apache.org/dist/incubator/netbeans/incubating-netbeans/incubating-10.0/incubating-netbeans-10.0-bin.zip
+unzip incubating-netbeans-10.0-bin.zip -d ~/
+sudo apt update
+sudo apt install default-jdk
+sudo update-alternatives --config java
+sudo nano /etc/environment
+JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+source /etc/environment
 
 
 #Install spring boot CLI

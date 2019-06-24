@@ -69,6 +69,14 @@ sudo nano /etc/environment
 JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 source /etc/environment
 
+#Mudando tema Netbeans 10
+Tools > Plugins > Settings 
+Add
+http://plugins.netbeans.org/nbpluginportal/updates/8.2/catalog.xml.gz
+#Theme Darkula
+
+#Importing project from GIT in STS
+#Execute com a opção smart p baixar as dependências com Maven
 
 #Install spring boot CLI
 cd /usr/local

@@ -62,6 +62,8 @@ select * from cursos where carga < 15 and ano > 2000 order by nome;
 cd /usr/local
 wget -c https://www-us.apache.org/dist/incubator/netbeans/incubating-netbeans/incubating-10.0/incubating-netbeans-10.0-bin.zip
 unzip incubating-netbeans-10.0-bin.zip -d ~/
+cd ~/netbeans/bin
+./netbeans
 sudo apt update
 sudo apt install default-jdk
 sudo update-alternatives --config java
@@ -69,8 +71,7 @@ sudo nano /etc/environment
 JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 source /etc/environment
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 #Mudando tema Netbeans 10
 Tools > Plugins > Settings 
 Add
@@ -78,11 +79,16 @@ http://plugins.netbeans.org/nbpluginportal/updates/8.2/catalog.xml.gz
 #Theme Darkula
 
 #Importing project from GIT in STS
-#Execute com a opção smart p baixar as dependências com Maven
-=======
->>>>>>> ac5f0432320e8ec0a8b4b967cebdf9d6f4989e47
-=======
->>>>>>> parent of 6011415... Mudando tema netbeans / Importando projetos do git direto pro STS
+#Execute com a opção smart p baixar as dependências com Maven ou selecione um projeto maven exitente
+
+#Instalar STS
+
+#Faça o download no site oficial=
+mv spring-tool-suite-4-4.3.0.RELEASE-e4.12.0-linux.gtk.x86_64.tar.gz /usr/local
+cd /usr/local
+sudo tar -vzxf spring-tool-suite-4-4.3.0.RELEASE-e4.12.0-linux.gtk.x86_64.tar.gz sts-4.3.0.RELEASE/
+cd sts-4.3.0.RELEASE/
+./SpringToolSuite4
 
 #Install spring boot CLI
 cd /usr/local
@@ -98,6 +104,9 @@ bash .bashrc
 sudo reboot
 spring run <nomeapp>
 #Abra navegador e acesse http://localhost:8080/
+
+#Se não aparecer ao banco de dados no console h2, faça
+"jdbc:h2:~/test" to "jdbc:h2:mem:testdb"
 
 #Criando estrutura de projeto
 spring init
@@ -116,6 +125,25 @@ java -jar build/libs/readinglist-0.0.1-SNAPSHOT.jar
 gradle dependencies #ver especificamente quais dependencias tem seu projeto
 mvn dependency:tree
 
+#Instalar Postman
+#Baixe no site oficial
+sudo mv Postman-linux-x64-7.2.2.tar.gz /usr/local
+cd /usr/local
+sudo tar xvf Postman-linux-x64-7.2.2.tar.gz
+sudo ln -sf /usr/local/Postman/app/Postman /usr/bin/postman
+nano ~/.local/share/applications/postman.desktop
+#Cole no arquivo .desktop
+[Desktop Entry]
+Encoding=UTF-8
+Name=Postman
+Exec=/usr/bin/postman
+Icon=/usr/local/Postman/app/resources/app/assets/icon.png
+Terminal=false
+Type=Application
+Categories=Development;
+#ou rode pela linha de comando
+cd Postman/ 
+./Postman
 
 #execute script from desktop shortcut. Crie arquivo com o seguinte conteúdo(adapte de acordo com o programa) e com a extensão .desktop
 [Desktop Entry]
@@ -134,9 +162,12 @@ sudo chmod +x <file>.desktop
 sudo chown <user>:<group> <file>.desktop 
 
 
-
-
-
-
+#Install gns3
+echo "deb http://ppa.launchpad.net/gns3/ppa/ubuntu xenial main" | sudo tee /etc/apt/sources.list.d/gns3.list
+echo "deb-src http://ppa.launchpad.net/gns3/ppa/ubuntu xenial main" | sudo tee /etc/apt/sources.list.d/gns3.list
+sudo apt-get install dirmngr
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F88F6D313016330404F710FC9A2FD067A2E3EF7B
+sudo apt-get update
+sudo apt-get install gns3-gui
 
 

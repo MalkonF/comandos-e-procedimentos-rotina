@@ -57,21 +57,6 @@ select nome, ano from cursos where ano between 2014 and 2016 order by ano desc, 
 select nome, ano from cursos where ano in('2014', '2017') order by ano;
 select * from cursos where carga < 15 and ano > 2000 order by nome;
 
-
-#Instalar OpenJDK e Netbeans
-cd /usr/local
-wget -c https://www-us.apache.org/dist/incubator/netbeans/incubating-netbeans/incubating-10.0/incubating-netbeans-10.0-bin.zip
-unzip incubating-netbeans-10.0-bin.zip -d ~/
-cd ~/netbeans/bin
-./netbeans
-sudo apt update
-sudo apt install default-jdk
-sudo update-alternatives --config java
-sudo nano /etc/environment
-JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
-source /etc/environment
-
-
 #Mudando tema Netbeans 10
 Tools > Plugins > Settings 
 Add
@@ -80,15 +65,6 @@ http://plugins.netbeans.org/nbpluginportal/updates/8.2/catalog.xml.gz
 
 #Importing project from GIT in STS
 #Execute com a opção smart p baixar as dependências com Maven ou selecione um projeto maven exitente
-
-#Instalar STS
-
-#Faça o download no site oficial=
-mv spring-tool-suite-4-4.3.0.RELEASE-e4.12.0-linux.gtk.x86_64.tar.gz /usr/local
-cd /usr/local
-sudo tar -vzxf spring-tool-suite-4-4.3.0.RELEASE-e4.12.0-linux.gtk.x86_64.tar.gz sts-4.3.0.RELEASE/
-cd sts-4.3.0.RELEASE/
-./SpringToolSuite4
 
 #Install spring boot CLI
 cd /usr/local
@@ -169,5 +145,18 @@ sudo apt-get install dirmngr
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F88F6D313016330404F710FC9A2FD067A2E3EF7B
 sudo apt-get update
 sudo apt-get install gns3-gui
+
+
+#Install Bacula
+sudo apt-get install postgresql
+sudo apt-get install bacula-director-pgsql bacula-fd bacula-sd bacula-bscan bacula-console postfix
+#Selecionar: site internet / Nome da máquina / Selecione localhost / Defina uma senha para o bd
+#Crie um volume ou diretório onde o bacula vai armazenar os backups
+mkdir ~/backup
+sudo chown bacula ~/backup/
+sudo nano /etc/bacula/bacula-sd.conf
+#Configure no arquivo: Archive Device = /home/anonymous01/backup
+/etc/init.d/bacula-sd restart
+
 
 

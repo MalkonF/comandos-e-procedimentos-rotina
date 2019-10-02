@@ -179,3 +179,14 @@ sudo passwd root
 sudo passwd -u root
 sudo su
 
+#Criando método de autenticação por chave de criptografia pública para usuário novo
+mkdir -p /home/myuser/.ssh
+touch /home/myuser/.ssh/authorized_keys
+useradd -d /home/myuser myuser
+chmod 700 /home/myuser/.ssh
+chmod 644 /home/myuser/.ssh/authorized_keys
+chown -R myuser:myuser /home/myuser/
+usermod -d /home/myuser myuser
+cp /root/.ssh/authorized_keys /home/biro/.ssh/
+
+

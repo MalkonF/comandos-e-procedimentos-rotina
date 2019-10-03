@@ -1,0 +1,5 @@
+#habilitar o sudo para usuário comum
+adduser biro
+passwd biro
+usermod -aG wheel biro
+

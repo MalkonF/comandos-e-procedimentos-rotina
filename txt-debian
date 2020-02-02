@@ -121,6 +121,9 @@ Categories=Development;
 cd Postman/ 
 ./Postman
 
+#Install heroku
+curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+
 #execute script from desktop shortcut. Crie arquivo com o seguinte conteúdo(adapte de acordo com o programa) e com a extensão .desktop
 [Desktop Entry]
 Version=1.0

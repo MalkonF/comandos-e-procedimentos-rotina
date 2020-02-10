@@ -101,6 +101,35 @@ java -jar build/libs/readinglist-0.0.1-SNAPSHOT.jar
 gradle dependencies #ver especificamente quais dependencias tem seu projeto
 mvn dependency:tree
 
+#Install nodejs
+ VERSION=v10.15.0
+ DISTRO=linux-x64
+ sudo mkdir -p /usr/local/lib/nodejs
+ sudo tar -xJvf node-$VERSION-$DISTRO.tar.xz -C /usr/local/lib/nodejs
+ export PATH=/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin:$PATH
+ . ~/.profile
+ node -v
+ npm version
+ npx -v
+
+#Install cordova e ionic
+npm install -g ionic@3.19.0 cordova@7.1.0
+export PATH=/home/anonymous/.npm-prefix/bin/:$PATH
+
+
+#Problema de permissao diretorio
+
+sudo chown -R $USER /usr/local/lib/nodejs/node-v12.15.0-linux-x64/lib/node_modules/
+#ou
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+source ~/.bashrc
+export npm_config_prefix=~/.npm-prefix
+
+#Problema json ionic
+
+rm ~/.ionic/daemon.json
+
+
 #Instalar Postman
 #Baixe no site oficial
 sudo mv Postman-linux-x64-7.2.2.tar.gz /usr/local
@@ -123,6 +152,7 @@ cd Postman/
 
 #Install heroku
 curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+heroku login
 
 #execute script from desktop shortcut. Crie arquivo com o seguinte conteúdo(adapte de acordo com o programa) e com a extensão .desktop
 [Desktop Entry]

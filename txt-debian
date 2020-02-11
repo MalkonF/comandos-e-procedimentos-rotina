@@ -34,6 +34,9 @@ git commit -m "first commit"
 git remote add origin git@github.com:MalkonF/osx.git
 git push -u origin master
 
+#Trocar o autor/email do ultimo commit
+git commit --amend --author="John Doe <john@doe.org>"
+
 
 #habilitar o sudo para usuário comum
 sudo apt-get install sudo
@@ -115,7 +118,9 @@ mvn dependency:tree
 #Install cordova e ionic
 npm install -g ionic@3.19.0 cordova@7.1.0
 export PATH=/home/anonymous/.npm-prefix/bin/:$PATH
-
+#Iniciar um projeto e cria repo git automaticamente
+ionic start CursoSpringIonic sidemenu 
+ionic serve #starta app
 
 #Problema de permissao diretorio
 

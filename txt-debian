@@ -207,6 +207,10 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F88F6D313016330404
 sudo apt-get update
 sudo apt-get install gns3-gui
 
+#Instalando e configuando audit para verificar qual processo está gerando tráfego na rede
+apt-get install auditd audispd-plugins
+
+
 
 #Install Bacula
 sudo apt-get install postgresql
@@ -265,4 +269,10 @@ nano /etc/sysctl.d/99-sysctl.conf
 sysctl -p
 cat /proc/sys/net/ipv6/conf/all/disable_ipv6
 #tem q aparecer 1 na saida do comando acima
+
+#Usando ping com protocolo ipv4
+ping www.google.com -4
+
+#Procurar o texto exato com grep. Use o x para procurar pela linha toda, se for so uma palavra na linha use so o F
+grep -Fx user1@example.com text_file
 

@@ -250,6 +250,11 @@ chown -R myuser:myuser /home/myuser/
 usermod -d /home/myuser myuser
 cp /root/.ssh/authorized_keys /home/biro/.ssh/
 
+#Copiando arquivos da máquina remota para a maquina local
+scp -i /media/anonymous/46f8a10f-f298-4201-8ff1-296f11356171/backup/keys/server/deb/id_rsa root@<your_ip>:/root/iptables.sh /home/anonymous
+#Copiando arquivos do servidor para maquina local
+scp -i /media/anonymous/46f8a10f-f298-4201-8ff1-296f11356171/backup/keys/server/centos/id_rsa_cent iptables.sh root@<your_ip>:/root/
+
 #Desabilitando IPv6
 #verifique com ifconfig -a se aparece algum endereço ipv6
 nano /etc/sysctl.d/99-sysctl.conf

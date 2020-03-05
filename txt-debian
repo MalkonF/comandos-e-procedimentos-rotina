@@ -37,6 +37,9 @@ git push -u origin master
 #Trocar o autor/email do ultimo commit
 git commit --amend --author="John Doe <john@doe.org>"
 
+#Alterar nome do repo
+#Va em settings e mude o nome, depois altere
+git remote set-url origin <new url do repo>
 
 #habilitar o sudo para usuário comum
 sudo apt-get install sudo
@@ -59,6 +62,14 @@ select nome, ano from cursos where ano between 2014 and 2016;
 select nome, ano from cursos where ano between 2014 and 2016 order by ano desc, nome asc;
 select nome, ano from cursos where ano in('2014', '2017') order by ano;
 select * from cursos where carga < 15 and ano > 2000 order by nome;
+rename table User to user;
+
+#P instalar Wildfly baixe o .zip, mova para /opt e extraia. Entre na pasta bin, execute o script ./standalone.sh. Acesse localhost:8080
+./add-user admin admin # add um usuario admin c senha admin. Acesse localhost:9990
+
+#Configurando datasource no wildfly para subir aplicações spring boot
+#Vá em configuration - subsystems - Data Sources e drives - Add data source
+
 
 #Mudando tema Netbeans 10
 Tools > Plugins > Settings 
@@ -104,6 +115,11 @@ java -jar build/libs/readinglist-0.0.1-SNAPSHOT.jar
 gradle dependencies #ver especificamente quais dependencias tem seu projeto
 mvn dependency:tree
 
+#Criando perfis de execução no Intelij
+#Clique em Add Configuration, templates - maven - Clique no + p add novo perfil
+#Em Command Line digite: clean install
+
+
 #Install nodejs
  VERSION=v10.15.0
  DISTRO=linux-x64
@@ -115,12 +131,19 @@ mvn dependency:tree
  npm version
  npx -v
 
+#Baixar dependencias
+git clone <url_proj>
+npm install
+
 #Install cordova e ionic
 npm install -g ionic@3.19.0 cordova@7.1.0
 export PATH=/home/anonymous/.npm-prefix/bin/:$PATH
-#Iniciar um projeto e cria repo git automaticamente
-ionic start CursoSpringIonic sidemenu 
+
+npm uninstall angular2-jwt --save
+
+ionic start CursoSpringIonic sidemenu  #Iniciar um projeto e cria repo git automaticamente
 ionic serve #starta app
+ionic generate page Categoria #gera page html Categoria.html
 
 #Problema de permissao diretorio
 
@@ -227,4 +250,14 @@ chown -R myuser:myuser /home/myuser/
 usermod -d /home/myuser myuser
 cp /root/.ssh/authorized_keys /home/biro/.ssh/
 
+#Desabilitando IPv6
+#verifique com ifconfig -a se aparece algum endereço ipv6
+nano /etc/sysctl.d/99-sysctl.conf
+#Add essas linhas no final
+#net.ipv6.conf.all.disable_ipv6 = 1
+#net.ipv6.conf.default.disable_ipv6 = 1
+#net.ipv6.conf.lo.disable_ipv6 = 1
+sysctl -p
+cat /proc/sys/net/ipv6/conf/all/disable_ipv6
+#tem q aparecer 1 na saida do comando acima
 

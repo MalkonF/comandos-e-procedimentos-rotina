@@ -64,6 +64,20 @@ select nome, ano from cursos where ano in('2014', '2017') order by ano;
 select * from cursos where carga < 15 and ano > 2000 order by nome;
 rename table User to user;
 
+#Android SDK
+#Baixe o android SDK(não precisa baixar se já tiver o android studio instalado)
+#Veja o caminho que o sdk está instalado
+sudo nano ~/.bashrc
+#Acrescente no final do arquivo
+export ANDROID_HOME=/home/anonymous/Android/Sdk
+export PATH=/$ANDROID_HOME/tools:$PATH
+export PATH=/$ANDROID_HOME/tools/bin:$PATH
+export PATH=/$ANDROID_HOME/platform-tools:$PATH
+export PATH=/$ANDROID_HOME/build-tools/19.1.0:$PATH
+source ~/.bashrc
+bash
+
+
 #P instalar Wildfly baixe o .zip, mova para /opt e extraia. Entre na pasta bin, execute o script ./standalone.sh. Acesse localhost:8080
 ./add-user admin admin # add um usuario admin c senha admin. Acesse localhost:9990
 
@@ -118,6 +132,15 @@ mvn dependency:tree
 #Criando perfis de execução no Intelij
 #Clique em Add Configuration, templates - maven - Clique no + p add novo perfil
 #Em Command Line digite: clean install
+
+#Install gradle
+sudo mkdir /opt/gradle
+sudo mv ~/Downloads/gradle-6.2.2-all.zip /opt/gradle/
+cd /opt/gradle/
+unzip gradle-6.2.2-all.zip 
+sudo nano ~/.bashrc
+#Acrescente no final do arquivo
+export PATH=/opt/gradle/gradle-6.2.2/bin:$PATH
 
 
 #Install nodejs
@@ -209,8 +232,10 @@ sudo apt-get install gns3-gui
 
 #Instalando e configuando audit para verificar qual processo está gerando tráfego na rede
 apt-get install auditd audispd-plugins
-
-
+#Regra pra capturar system call socket
+auditctl -a exit,always -F arch=b64 -F a0=2 -F a1\&=2 -S socket -k SOCKET
+#Procurar pelos registros
+ausearch -i -ts today -k SOCKET
 
 #Install Bacula
 sudo apt-get install postgresql
@@ -272,6 +297,18 @@ cat /proc/sys/net/ipv6/conf/all/disable_ipv6
 
 #Usando ping com protocolo ipv4
 ping www.google.com -4
+
+#Uso do lsof - serve p ver quais procesos estao ativos e se algum arquivo está aberto. Se no umount der q um file esta open, usa isso
+lsof | less #na coluna FD é o tipo de arquivo
+lsof | grep "txt" | less #mostra todos os txt
+lsof -u root 
+lsof -i -u^root #mostra de todos os users menos do root
+lsof -i TCP:80 #mostra todos os processos rodando na porta
+lsof -i TCP:1-100
+lsof -p 10052 #numero do pid
+lsof -i -a -p 234 #lista arquivos de rede usadas pelo processo com pid 234
+lsof -i -a -c ssh #Lista os network files usados pelos processos q tem o nome começando com ssh
+lsof -i -P | grep -i "LISTEN"
 
 #Procurar o texto exato com grep. Use o x para procurar pela linha toda, se for so uma palavra na linha use so o F
 grep -Fx user1@example.com text_file

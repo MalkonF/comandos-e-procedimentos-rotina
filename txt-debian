@@ -41,6 +41,9 @@ git commit --amend --author="John Doe <john@doe.org>"
 #Va em settings e mude o nome, depois altere
 git remote set-url origin <new url do repo>
 
+git revert HEAD^ # apaga commit local
+git push -f origin HEAD~1^:master # apaga 2 ultimos commit no github mas fica no historico local, depois desse comando vc tem q fazer o push -f
+
 #habilitar o sudo para usuário comum
 sudo apt-get install sudo
 adduser <nome_usuario>
@@ -78,6 +81,7 @@ source ~/.bashrc
 bash
 
 
+#Wildfly
 #P instalar Wildfly baixe o .zip, mova para /opt e extraia. Entre na pasta bin, execute o script ./standalone.sh. Acesse localhost:8080
 ./add-user admin admin # add um usuario admin c senha admin. Acesse localhost:9990
 
@@ -122,6 +126,15 @@ spring init -dweb,jpa,security --build gradle -p jar -x
 spring help init
 spring init -l
 
+#Install gradle
+sudo mkdir /opt/gradle
+sudo mv ~/Downloads/gradle-6.2.2-all.zip /opt/gradle/
+cd /opt/gradle/
+unzip gradle-6.2.2-all.zip 
+sudo nano ~/.bashrc
+#Acrescente no final do arquivo
+export PATH=/opt/gradle/gradle-6.2.2/bin:$PATH
+
 gradle bootRun
 gradle build
 java -jar build/libs/readinglist-0.0.1-SNAPSHOT.jar
@@ -132,15 +145,6 @@ mvn dependency:tree
 #Criando perfis de execução no Intelij
 #Clique em Add Configuration, templates - maven - Clique no + p add novo perfil
 #Em Command Line digite: clean install
-
-#Install gradle
-sudo mkdir /opt/gradle
-sudo mv ~/Downloads/gradle-6.2.2-all.zip /opt/gradle/
-cd /opt/gradle/
-unzip gradle-6.2.2-all.zip 
-sudo nano ~/.bashrc
-#Acrescente no final do arquivo
-export PATH=/opt/gradle/gradle-6.2.2/bin:$PATH
 
 
 #Install nodejs
@@ -168,6 +172,11 @@ ionic start CursoSpringIonic sidemenu  #Iniciar um projeto e cria repo git autom
 ionic serve #starta app
 ionic generate page Categoria #gera page html Categoria.html
 
+#Desinstalar
+npm uninstall -g cordova
+npm uninstall -g ionic
+npm cache clean -f
+
 #Problema de permissao diretorio
 
 sudo chown -R $USER /usr/local/lib/nodejs/node-v12.15.0-linux-x64/lib/node_modules/
@@ -180,6 +189,17 @@ export npm_config_prefix=~/.npm-prefix
 
 rm ~/.ionic/daemon.json
 
+#Angular
+#Entre no site e baixe o node e instale
+npm install -g angular-cli
+mkdir NG2apps
+ng new first-app
+cd first-app
+ng serve
+#abra o brownser e digite localhost e a porta q indicar
+ng -v
+ng g component videoList #criar componente
+ng g service comment #criar serviço
 
 #Instalar Postman
 #Baixe no site oficial

@@ -44,6 +44,9 @@ git remote set-url origin <new url do repo>
 git revert HEAD^ # apaga commit local
 git push -f origin HEAD~1^:master # apaga 2 ultimos commit no github mas fica no historico local, depois desse comando vc tem q fazer o push -f
 
+#Atualizar seu repo local com o repo do github
+git pull
+
 #habilitar o sudo para usuário comum
 sudo apt-get install sudo
 adduser <nome_usuario>

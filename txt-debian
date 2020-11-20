@@ -177,6 +177,9 @@ mvn dependency:tree
 #Clique em Add Configuration, templates - maven - Clique no + p add novo perfil
 #Em Command Line digite: clean install
 
+#Para mudar o JDK que vai executar seu projeto no STS, clique com botão direito em JRE System Library - 
+#Escolha Properties, depois Installed JRE's, clique em ADD para adicionar um novo JDK
+
 
 #Install nodejs
  VERSION=v10.15.0

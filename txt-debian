@@ -34,6 +34,10 @@ git commit -m "first commit"
 git remote add origin git@github.com:MalkonF/osx.git
 git push -u origin master
 
+#Configurar usuario e e-mail git
+git config --global user.name "MalkonF"
+git config --global user.email "sudo777@protonmail.com"
+
 #Trocar o autor/email do ultimo commit
 git commit --amend --author="John Doe <john@doe.org>"
 
@@ -46,6 +50,9 @@ git push -f origin HEAD~1^:master # apaga 2 ultimos commit no github mas fica no
 
 #Atualizar seu repo local com o repo do github
 git pull
+
+#Ver historico do projeto
+git log
 
 #habilitar o sudo para usuário comum
 sudo apt-get install sudo
@@ -128,6 +135,27 @@ spring init -dweb,jpa,security --build gradle -p war myapp
 spring init -dweb,jpa,security --build gradle -p jar -x
 spring help init
 spring init -l
+
+#Mudando a versão JDK de um projeto pelo maven
+#Primeiro instale o JDK na versão desejada e configure as variáveis do sistema: JAVA_HOME etc depois acrescente isso no pom.xml:
+
+<properties>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+	</properties>
+
+    #e:
+
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <configuration>
+        <source>11</source>
+        <target>11</target>
+    </configuration>
+</plugin>
+
+#Observe que no JRE System Library vai mudar a versão para o JDK desejado
 
 #Install gradle
 sudo mkdir /opt/gradle
